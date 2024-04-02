@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json 개념</title>
+</head>
+<body>
+    <script>
+        /*
+            json (javascript object notation)
+            -데이터를 효과적으로 전달/저장하기 위한 경량의 데이터 형식
+            -read,write가 편하고 기계가 분석하고 생성하기 쉬우며 텍스트형식으로 표현되기 때문에
+            다양한 프로그램 언어를 교환하는데 널리 사용
+
+            -구조 
+            1.객체 - key , value의 집합 , {} , key=문자열 value=문자열/숫자/배열(다양한 형태의 데이터 가능),
+                key value는 구분되며, 각 쌍은 쉼표
+
+            2.배열 - [] , 값의 순서 목록 index , 쉼표로 값이 구분
+
+        */
+        const person = {
+            name:"허혜정",
+            age:20
+        }
+        console.log(person)
+
+        //json 문자열로 변환 .stringify()
+        const jsonperson =JSON.stringify(person)
+        console.log(jsonperson)
+
+
+        const numbers= [1,2,3,4,5]
+        const jsonnumber = JSON.stringify(numbers)
+        console.log(jsonnumber)
+
+        //stringfy() 는 옵션으로 좀 더 디테일한 직렬화
+        //특정 속성을 포함하거나 , 제외하거나, 숫자나 문자열을 형식화 
+        //json 파일이 출력될 때 들여쓰기 적용
+
+        const formatJson = JSON.stringify(person,null,2)
+        console.log(formatJson)
+
+        // JSON.stringfy() 메소드를 사용하면 자바스크립트 객체나 배열을 JSON문자열로 변환하여 데이터를 송수신할 때 사용
+
+
+        // .parse() - 문자열(JSON파일 형식을)을 javascript 객체로 변환  
+
+        let Jsonstring = '{"name":"허혜정","age":20}'
+        let JsonObject = JSON.parse(Jsonstring)
+        console.log(JsonObject)
+
+
+        //parse() 메소드는 JSON 형식의 문자열을 javascript 객체나 배열로 반환
+        //JSON 문자열 형식이 올바르지 않으면 파싱에 실패하고 에러가 남.
+
+        /*
+            JSON.parse() 묹열 내부에 있는 값을 javascript 객체로 변환시 변환 규칙
+            - 문자열:javascript 문자열
+            - 숫자 :  javascript 숫자
+            - 논리 :  javascript boolean 값
+            - 배열 :  javascript 배열
+            - 객체 :  javascript 객체
+            
+        */
+    </script>
+</body>
+</html>
